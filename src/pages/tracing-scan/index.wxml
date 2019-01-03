@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="main">
+    <text>tracing scan</text>
+  </view>
+</view>

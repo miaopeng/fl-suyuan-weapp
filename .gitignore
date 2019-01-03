@@ -1,0 +1,5 @@
+# production
+/dist
+
+# npm
+node_modules

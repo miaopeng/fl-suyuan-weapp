@@ -1,0 +1,27 @@
+{
+  "name": "suyuan-weapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "ssh://git@flian.iask.in:10099/suyuan/suyuan-weapp.git",
+  "author": "Peng Miao <mios@yeah.net>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gulp"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "del": "^3.0.0",
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-compat": "^2.6.2",
+    "eslint-plugin-import": "^2.8.0",
+    "gulp": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {
+  }
+}

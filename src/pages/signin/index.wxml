@@ -1,0 +1,49 @@
+<view class="container page-login full flex flex-column space-between top">
+  <view class="header">
+    <view class="title">登录</view>
+    <navigator url="/pages/signup" class="sub">注册</navigator>
+    <view wx:if="{{withSms}}">
+      <form bindsubmit="loginWithSms">
+        <view class="input-wrapper">
+          <input name="mobile" type="number" value="18601280503" class="input-box phone-code"
+          bindinput="bindMobile" placeholder="请输入已注册的手机号" focus="true" />
+        </view>
+        <view class="captcha input-wrapper">
+          <input name="sms_code" type="number"
+            class="input-box captcha-input" placeholder="请输入验证码" />
+          <captcha-btn mobile="{{mobile}}" url="{{captchaUrl}}"/>
+        </view>
+        <view class="user-input-row">
+          <button class="btn session" formType="submit">登录</button>
+        </view>
+      </form>
+    </view>
+    <view wx:else>
+      <form bindsubmit="loginWithPass">
+        <view class="input-wrapper">
+          <input name="mobile" type="number" value="18601280503" class="input-box phone-code"
+          bindinput="bindMobile" placeholder="请输入已注册的手机号" focus="true" />
+        </view>
+        <view class="input-wrapper">
+          <input name="password" type="password" value="123"
+            class="input-box" placeholder="请输入密码" />
+        </view>
+        <view class="user-input-row">
+          <button class="btn session" formType="submit">登录</button>
+        </view>
+      </form>
+    </view>
+  </view>
+  <view class="footer">
+    <view wx:if="{{withSms}}">
+      <view class="text-brand" bindtap="switchMode">
+        密码登录
+      </view>
+    </view>
+    <view wx:else>
+      <view class="text-brand" bindtap="switchMode" data-withsms>
+        手机验证码登录
+      </view>
+    </view>
+  </view>
+</view>
