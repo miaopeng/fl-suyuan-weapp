@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "regenerator-runtime": "^0.13.1",
+    "url-parse": "^1.4.4",
     "url-search-params": "^1.1.0",
     "wx-promise-request": "^2.1.3"
   }

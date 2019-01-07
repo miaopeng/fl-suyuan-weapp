@@ -1,4 +1,4 @@
-import { signin } from '../../service/user';
+import { signin, getProfile } from '../../service/user';
 import isValidPhone from '../../utils/is-valid/phone';
 
 const app = getApp();
@@ -54,7 +54,7 @@ Page({
   },
 
   getToken(res) {
-    return res.data.access_token;
+    return res.data.data.access_token;
   },
 
   loginWithPass(e) {
@@ -78,11 +78,6 @@ Page({
       password: e.detail.value.password,
       type: 'password',
     }).then(res => {
-      wx.hideLoading();
-      if (res.statusCode !== 200) {
-        app.toast('登录失败');
-        return;
-      }
       this.signInSuccess(res);
     });
   },
@@ -91,8 +86,12 @@ Page({
     if (this.getToken(res)) {
       app.setUserSession(this.getToken(res));
     }
-    // app.toast('登陆成功');
-    wx.reLaunch({ url: '/pages/index/index' });
+    getProfile().then((profile) => {
+      console.log('res', profile);
+      if (profile) {
+        wx.reLaunch({ url: '/pages/index/index' });
+      }
+    })
   },
 
   signup() {
