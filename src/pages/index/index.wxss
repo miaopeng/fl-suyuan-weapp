@@ -1,0 +1,12 @@
+.main {
+  flex: 1;
+}
+
+.footer {
+  color: red;
+  font-size: 40rpx;
+}
+
+.footer .right {
+  color: red;
+}

@@ -67,5 +67,14 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+
+  toast(opt) {
+    const { title = '', icon = 'none', duration = 2000 } = opt;
+    wx.showToast({
+      title: typeof opt === 'string' ? opt : title,
+      icon,
+      duration,
+    });
   }
 })

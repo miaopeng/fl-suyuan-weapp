@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "captcha-btn": "../../components/captcha-btn/index"
+  }
+}
