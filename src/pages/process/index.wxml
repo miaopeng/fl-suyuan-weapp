@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <view>{{productName}}</view>
+    <view>{{enterpiseName}}</view>
+  </view>
+  <view class="main">
+    <i-steps current="{{verticalCurrent}}" direction="vertical">
+        <i-step wx:for="{{records}}" wx:key="{{idx}}" wx:for-item="record">
+            <view slot="title">{{record.recSectorName}}</view>
+            <view slot="content">
+              <view>{{record.sectorAddr}} {{record.recAddr}}</view>
+              <view>{{record.sectorExecutor}} {{record.recExecutor}}</view>
+              <view>{{record.sectorTime}} {{record.recTime}}</view>
+            </view>
+        </i-step>
+    </i-steps>
+  </view>
+</view>

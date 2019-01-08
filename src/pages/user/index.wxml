@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="main">
+    <text>{{user.userName}}</text>
+    <button plain="true" bindtap="scan">开始扫码</button>
+  </view>
+</view>

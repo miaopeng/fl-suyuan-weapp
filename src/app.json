@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/tracing-scan/index",
-    "pages/signin/index"
+    "pages/signin/index",
+    "pages/process/index",
+    "pages/user/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

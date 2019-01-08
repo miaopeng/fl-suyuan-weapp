@@ -34,12 +34,10 @@ const checkStatus = response => {
 };
 
 const checkCode = response => {
-  console.log('code checking...', response);
   if (response.data && response.data.code === 1) {
     return response;
   }
-  console.log('code checking faild', response);
-  const errortext = response.msg || '请求没有成功，请稍后再试';
+  const errortext = response.data.msg || '请求没有成功，请稍后再试';
   const error = new Error(errortext);
   error.name = 'code';
   error.message = errortext;
@@ -59,9 +57,12 @@ export default function request(
 ) {
   let newURL = url;
 
-  if (url.startsWith(`${app.API_URL}/user-service/`)) {
-    const parsedURL = new Url(url, true);
-    parsedURL.set('query', { 'access_token': app.user.app_session_key});
+  // if (url.startsWith(`${app.API_URL}/user-service/`)) {
+  if (url.startsWith(`/api/`) && app.getToken()) {
+    const parsedURL = new Url(url.replace(/^\/api/, ''), true);
+    parsedURL.set('query', { 'access_token': app.getToken()});
+    parsedURL.set('hostname', `${app.API_URL}/user-service`);
+    console.log('parsedURL.href', parsedURL.href);
     newURL = parsedURL.href;
   }
 
@@ -101,16 +102,11 @@ export default function request(
     })
     .then(checkCode)
     .catch(e => {
-      const status = e.name;
-      console.log('catched', status);
+      const { name: status, message } = e;
+      console.log('request catched', status, message);
 
       if (status === 400) {
-        app.toast('用户名密码错误');
-        return;
-      }
-
-      if (status === 401) {
-        app.toast('发送失败，请稍后再试');
+        app.toast('请求失败，请稍后再试');
         return;
       }
 
@@ -129,6 +125,12 @@ export default function request(
       }
       if (status >= 404 && status < 422) {
         app.toast('发送失败，请稍后再试');
+        return;
+      }
+
+      if (message) {
+        app.toast(message);
+        return;
       }
 
       app.toast('发送失败，请稍后再试');

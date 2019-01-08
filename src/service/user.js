@@ -3,7 +3,6 @@ const request = require('../utils/request').default;
 
 const app = getApp();
 
-// eslint-disable-next-line import/prefer-default-export
 export const signin = ({ username, password, type }) => {
   const params = new URLSearchParams();
   params.set('username', username);
@@ -23,7 +22,4 @@ export const signinCaptcha = ({ mobile }) => {
   });
 }
 
-export const getProfile = () => {
-  const url = `${app.API_URL}/user-service/user/profile?a=1`;
-  return request(url);
-}
+export const getProfile = () => request('/api/user/profile')

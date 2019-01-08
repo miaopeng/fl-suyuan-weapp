@@ -13,7 +13,12 @@ function buildWxss() {
       return str === 0 ? 0 : `${2 * str}rpx`
   }
 
-	return src(['./**/*.scss', '!./scss/**/*.scss'])
+	return src([
+    './**/*.scss',
+    '!./scss/**',
+    '!./node_modules/**',
+    '!./miniprogram_npm/**',
+  ])
 		.pipe(sass({
 			errLogToConsole: true,
 			outputStyle: 'expanded',

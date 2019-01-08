@@ -14,7 +14,17 @@ const formatTime = date => {
   return `${[year, month, day].map(formatNumber).join('/')  } ${  [hour, minute, second].map(formatNumber).join(':')}`
 }
 
+const codeParser = (value) => {
+  const re = /^https?:\/\/flian.iask.in\/tracing\/code\/(\d+)/;
+  const match = re.exec(value);
+  if (match) {
+    return match[1];
+  }
+  return false;
+}
+
 
 module.exports = {
-  formatTime
+  formatTime,
+  codeParser,
 }

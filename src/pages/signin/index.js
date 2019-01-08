@@ -89,7 +89,8 @@ Page({
     getProfile().then((profile) => {
       console.log('res', profile);
       if (profile) {
-        wx.reLaunch({ url: '/pages/index/index' });
+        app.saveProfile(profile.data.data.userInfo);
+        wx.reLaunch({ url: '/pages/user/index' });
       }
     })
   },

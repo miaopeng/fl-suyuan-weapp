@@ -1,3 +1,7 @@
+.container {
+  padding-top: 100rpx;
+}
+
 .main {
   width: 600rpx;
 }
