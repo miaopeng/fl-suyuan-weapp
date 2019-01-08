@@ -1,7 +1,16 @@
 {
 	"description": "项目配置文件。",
 	"packOptions": {
-		"ignore": []
+		"ignore": [
+			{
+				"type": "suffix",
+				"value": ".scss"
+			},
+			{
+				"type": "file",
+				"value": "yarn.lock"
+			}
+		]
 	},
 	"setting": {
 		"urlCheck": false,
@@ -13,7 +22,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.1",
+	"libVersion": "2.2.5",
 	"appid": "wx28efcda537afb1c0",
 	"projectname": "suyuan-weapp",
 	"isGameTourist": false,
@@ -35,7 +44,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -44,10 +53,16 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "process",
 					"pathName": "pages/process/index",
-					"query": "code=12121318"
+					"query": "code= 77362674"
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/index",
+					"query": ""
 				}
 			]
 		}

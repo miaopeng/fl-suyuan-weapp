@@ -1,17 +1,18 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="header">
+  <view class="header" wx:if="{{!loading}}">
     <view>{{productName}}</view>
     <view>{{enterpiseName}}</view>
+    <view class="code">产品代码：{{code}}</view>
   </view>
   <view class="main">
-    <i-steps current="{{verticalCurrent}}" direction="vertical">
-        <i-step wx:for="{{records}}" wx:key="{{idx}}" wx:for-item="record">
+    <i-steps current="{{records.length}}" direction="vertical">
+        <i-step status="finish" wx:for="{{records}}" wx:key="{{idx}}" wx:for-item="record">
             <view slot="title">{{record.recSectorName}}</view>
             <view slot="content">
-              <view>{{record.sectorAddr}} {{record.recAddr}}</view>
-              <view>{{record.sectorExecutor}} {{record.recExecutor}}</view>
-              <view>{{record.sectorTime}} {{record.recTime}}</view>
+              <view><text class="record-label">{{record.sectorAddr}}</text>{{record.recAddr}}</view>
+              <view><text class="record-label">{{record.sectorExecutor}}</text>{{record.recExecutor}}</view>
+              <view><text class="record-label">{{record.sectorTime}}</text>{{record.recTime}}</view>
             </view>
         </i-step>
     </i-steps>

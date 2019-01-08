@@ -1,7 +1,17 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="main">
-    <text>{{user.userName}}</text>
-    <button plain="true" bindtap="scan">开始扫码</button>
+<view class="container full">
+  <view class="main ph">
+    <view wx:if="{{user}}">
+      <view class="header flex items-center mb">
+        <open-data class="avatar mr" type="userAvatarUrl"></open-data>
+        <view class="text-white flex cell">
+          你好，{{user.userName}}
+        </view>
+        <button class="btn noborder white" plain="true" bindtap="signout">退出登录</button>
+      </view>
+      <view class="mt">
+        <button class="btn moon" plain="true" bindtap="scan">开始扫码</button>
+      </view>
+    </view>
   </view>
 </view>

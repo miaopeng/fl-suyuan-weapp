@@ -58,6 +58,7 @@ export default function request(
   let newURL = url;
 
   // if (url.startsWith(`${app.API_URL}/user-service/`)) {
+  console.log('request', url, app.getToken());
   if (url.startsWith(`/api/`) && app.getToken()) {
     const parsedURL = new Url(url.replace(/^\/api/, ''), true);
     parsedURL.set('query', { 'access_token': app.getToken()});
@@ -102,6 +103,7 @@ export default function request(
     })
     .then(checkCode)
     .catch(e => {
+      wx.hideLoading();
       const { name: status, message } = e;
       console.log('request catched', status, message);
 
@@ -129,7 +131,11 @@ export default function request(
       }
 
       if (message) {
-        app.toast(message);
+        wx.showModal({
+          title: '提示',
+          content: message,
+          showCancel: false,
+        });
         return;
       }
 

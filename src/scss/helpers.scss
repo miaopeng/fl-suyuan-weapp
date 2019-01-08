@@ -4,6 +4,10 @@
 .flex {
   display: flex;
 
+  &.items-center {
+    align-items: center;
+  }
+
   &.cell {
     flex: 1;
   }
@@ -73,10 +77,28 @@
   }
 } // end flexbox helpers
 
-.pull-left {
+.float-left {
   float: left;
 }
 
-.pull-right {
+.float-right {
   float: right;
 }
+
+.full {
+  min-height: 100vh;
+}
+
+.ph { padding-left: 16px !important; padding-right: 16px !important; }
+.pv { padding-top: 16px !important; padding-bottom: 16px !important; }
+.pt { padding-top: 16px !important; }
+.pb { padding-bottom: 16px !important; }
+.pl { padding-left: 16px !important; }
+.pr { padding-right: 16px !important; }
+
+.mh { margin-left: 16px !important; margin-right: 16px !important; }
+.mv { margin-top: 16px !important; margin-bottom: 16px !important; }
+.mt { margin-top: 16px !important; }
+.mb { margin-bottom: 16px !important; }
+.ml { margin-left: 16px !important; }
+.mr { margin-right: 16px !important; }

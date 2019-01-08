@@ -49,16 +49,10 @@ ad {
   justify-content: space-between;
 }
 
-.btn {
-  width: 100%;
-  color: #333;
-  border-radius: 0;
-  font-size: 32rpx;
-}
-
 @import 'scss/typo';
 @import 'scss/font-number';
 @import 'scss/icons';
 @import 'scss/input';
 @import 'scss/loading';
 @import 'scss/cell';
+@import 'scss/btn';

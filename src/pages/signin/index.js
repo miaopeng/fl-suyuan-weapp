@@ -58,6 +58,7 @@ Page({
   },
 
   loginWithPass(e) {
+    console.log('login');
     const { mobile, password } = e.detail.value;
     if (!isValidPhone(mobile)) {
       app.toast('请输入正确的手机号');
@@ -85,14 +86,14 @@ Page({
   signInSuccess(res) {
     if (this.getToken(res)) {
       app.setUserSession(this.getToken(res));
+      getProfile().then((profile) => {
+        console.log('res', profile);
+        if (profile) {
+          app.saveProfile(profile.data.data.userInfo);
+          wx.reLaunch({ url: '/pages/user/index' });
+        }
+      })
     }
-    getProfile().then((profile) => {
-      console.log('res', profile);
-      if (profile) {
-        app.saveProfile(profile.data.data.userInfo);
-        wx.reLaunch({ url: '/pages/user/index' });
-      }
-    })
   },
 
   signup() {
