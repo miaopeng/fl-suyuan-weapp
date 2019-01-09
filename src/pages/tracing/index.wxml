@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="text-xs">您购买的是</view>
+    <view class="mb">{{productName}}</view>
+    <view class="text-sm mb">生产商 {{enterpriseName}}</view>
+    <view class="text-xs border mr">一物一码</view>
+    <view class="text-xs border">区块链码：{{blockId}}</view>
+  </view>
+  <view class="main">
+    <tabs current="{{ currentTab }}" bindchange="handleChangeTab">
+      <tab key="tab-tracing" title="溯源信息"></tab>
+      <tab key="tab-intro" title="产品介绍"></tab>
+      <tab key="tab-spec" title="规格参数"></tab>
+    </tabs>
+  </view>
+</view>

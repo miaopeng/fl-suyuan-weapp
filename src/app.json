@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/tracing-scan/index",
+    "pages/tracing/index",
     "pages/signin/index",
     "pages/process/index",
     "pages/user/index"

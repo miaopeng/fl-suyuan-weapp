@@ -4,6 +4,16 @@
 .text-sm {
   font-size: 30rpx;
 }
+.text-xs {
+  font-size: 12px;
+}
 .text-white {
   color: white !important;
+}
+
+.border {
+  display: inline-block;
+  border: 1px solid white;
+  padding: 2px 8px;
+  border-radius: 4px;
 }
