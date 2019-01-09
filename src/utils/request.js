@@ -21,6 +21,8 @@ const codeMessage = {
   504: '网关超时。',
 };
 
+const failMessage = '请求失败，请稍后再试';
+
 const checkStatus = response => {
   const { statusCode } = response;
   if (statusCode >= 200 && statusCode < 300) {
@@ -109,25 +111,25 @@ export default function request(
       console.log('request catched', status, message);
 
       if (status === 400) {
-        app.toast('请求失败，请稍后再试');
+        app.toast(failMessage);
         return;
       }
 
       if (status === 401) {
-        app.toast('发送失败，请稍后再试');
+        app.toast(failMessage);
         return;
       }
 
       if (status === 403) {
-        app.toast('发送失败，请稍后再试');
+        app.toast(failMessage);
         return;
       }
       if (status <= 504 && status >= 500) {
-        app.toast('发送失败，请稍后再试');
+        app.toast(failMessage);
         return;
       }
       if (status >= 404 && status < 422) {
-        app.toast('发送失败，请稍后再试');
+        app.toast(failMessage);
         return;
       }
 
@@ -140,6 +142,6 @@ export default function request(
         return;
       }
 
-      app.toast('发送失败，请稍后再试');
+      app.toast(failMessage);
     });
 }

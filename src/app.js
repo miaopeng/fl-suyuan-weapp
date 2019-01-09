@@ -1,9 +1,7 @@
 const SERVERS = {
-  PROD: "http://flian.iask.in",
-  DEV:  "https://zt.fulldao.cn/test",
+  PROD: "https://zt.fulldao.cn",
+  DEV:  "http://flian.iask.in",
   MOCK: "http://localhost:3000",
-  MIN_MIN: "http://192.168.12.69:8080",
-  ZHI_HAO: "http://192.168.12.67:8080"
 };
 const APP_SESSION_KEY = 'app_session_key';
 
@@ -11,6 +9,9 @@ App({
   API_URL: SERVERS.PROD,
 
   user: {
+  },
+
+  product: {
   },
 
   isLoggedIn() {
@@ -46,8 +47,15 @@ App({
   saveProfile(profile) {
     this.user = {
       ...this.user,
-      ...profile
+      ...profile,
     };
+  },
+
+  saveProduct(product) {
+    this.product = {
+      ...this.product,
+      ...product,
+    }
   },
 
   onLaunch () {

@@ -1,9 +1,50 @@
+import { queryRecords } from '../../service/api';
+import { codeParser } from '../../utils/util';
+
+const app = getApp();
+
 Page({
   data: {
   },
-  onLoad (options) {
-    this.setData({
-      q: options.q ? decodeURIComponent(options.q) : ''
+
+  onLoad({ q }) {
+    console.log('q', q);
+    if (q) this.parseCode(decodeURIComponent(q));
+  },
+
+  handleScan() {
+    wx.showLoading({ title: '检查二维码...' });
+    wx.scanCode({
+      success: ({ result }) => {
+        console.log('result', result);
+        this.parseCode(result);
+      },
     });
   },
-})
+
+  parseCode(result) {
+    const code = codeParser(result);
+    if (code) {
+      this.fetchProduct(code);
+    } else {
+      app.toast('请使用正确的二维码');
+    }
+  },
+
+  fetchProduct(code) {
+    queryRecords(code).then(res => {
+      wx.hideLoading();
+      if (res && res.data.code === 1) {
+        const { product, records } = res.data.data;
+        app.saveProduct({
+          ...product[0],
+          code,
+          records,
+        });
+        wx.navigateTo({ url: '/pages/tracing/index' })
+      } else {
+        app.toast('请使用正确的二维码');
+      }
+    });
+  }
+});

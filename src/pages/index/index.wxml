@@ -1,11 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-  <text>v2</text>
+  <text>v3</text>
   <text>{{q}}</text>
   <view class="main">
-    <navigator url="/pages/tracing-scan/index" plain="true">
-      <button plain="true">开始扫码</button>
-    </navigator>
+    <button plain="true" bindtap="handleScan">开始扫码</button>
   </view>
   <view class="footer">
     <navigator url="/pages/signin/index">sign in</navigator>
