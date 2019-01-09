@@ -57,11 +57,12 @@ export default function request(
 ) {
   let newURL = url;
 
-  // if (url.startsWith(`${app.API_URL}/user-service/`)) {
   console.log('request', url, app.getToken());
-  if (url.startsWith(`/api/`) && app.getToken()) {
+  if (url.startsWith(`/api/`)) {
     const parsedURL = new Url(url.replace(/^\/api/, ''), true);
-    parsedURL.set('query', { 'access_token': app.getToken()});
+    if (app.getToken()) {
+      parsedURL.set('query', { 'access_token': app.getToken()});
+    }
     parsedURL.set('hostname', `${app.API_URL}/user-service`);
     console.log('parsedURL.href', parsedURL.href);
     newURL = parsedURL.href;

@@ -1,3 +1,5 @@
+@import './variables';
+
 .text-lg {
   font-size: 48rpx;
 }
@@ -9,6 +11,9 @@
 }
 .text-white {
   color: white !important;
+}
+.color-brand {
+  color: $color-brand !important;
 }
 
 .border {

@@ -213,6 +213,10 @@ ad {
   color: white !important;
 }
 
+.color-brand {
+  color: #669 !important;
+}
+
 .border {
   display: inline-block;
   border: 2rpx solid white;

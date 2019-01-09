@@ -65,10 +65,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "tracing",
 					"pathName": "pages/tracing/index",
-					"query": ""
+					"query": "code=78878877"
 				}
 			]
 		}

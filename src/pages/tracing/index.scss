@@ -10,3 +10,24 @@
 .main {
   width: 100%;
 }
+
+.tab-content {
+  padding: 0 20px;
+
+  .gallery {
+    margin: 0 -20px;
+
+    image { display: block; width: 100%; }
+  }
+}
+
+.record-label {
+  display: inline-block;
+  width: 80px;
+}
+
+.spec-row {
+  color: $color-brand;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}

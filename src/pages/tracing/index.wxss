@@ -8,3 +8,27 @@
 .main {
   width: 100%;
 }
+
+.tab-content {
+  padding: 0 40rpx;
+}
+
+.tab-content .gallery {
+  margin: 0 -40rpx;
+}
+
+.tab-content .gallery image {
+  display: block;
+  width: 100%;
+}
+
+.record-label {
+  display: inline-block;
+  width: 160rpx;
+}
+
+.spec-row {
+  color: #669;
+  padding: 24rpx 0;
+  border-bottom: 2rpx solid #ddd;
+}

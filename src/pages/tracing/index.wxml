@@ -8,10 +8,48 @@
     <view class="text-xs border">区块链码：{{blockId}}</view>
   </view>
   <view class="main">
+
     <tabs current="{{ currentTab }}" bindchange="handleChangeTab">
       <tab key="tab-tracing" title="溯源信息"></tab>
       <tab key="tab-intro" title="产品介绍"></tab>
       <tab key="tab-spec" title="规格参数"></tab>
     </tabs>
+
+    <view class="tab-content">
+      <block wx:if="{{currentTab === 'tab-tracing'}}">
+        <view class="mt">
+          <block wx:if="{{loading}}">
+            <view class="loading">
+              <view class="icon-loading" />
+            </view>
+          </block>
+          <i-steps wx:if="records.length" current="{{records.length}}" direction="vertical">
+            <i-step status="finish" wx:for="{{records}}" wx:key="{{idx}}" wx:for-item="record">
+              <view slot="title">{{record.recSectorName}}</view>
+              <view slot="content">
+                <view><text class="record-label">{{record.sectorAddr}}</text>{{record.recAddr}}</view>
+                <view><text class="record-label">{{record.sectorExecutor}}</text>{{record.recExecutor}}</view>
+                <view><text class="record-label">{{record.sectorTime}}</text>{{record.recTime}}</view>
+              </view>
+            </i-step>
+          </i-steps>
+        </view>
+      </block>
+
+      <block wx:if="{{currentTab === 'tab-intro'}}">
+        <view class="gallery">
+          <scroll-view scroll-y style="height: 500px">
+            <image mode="widthFix" src="../../static/pic/intro-01.jpg" />
+            <image mode="widthFix" src="../../static/pic/intro-02.jpg" />
+          </scroll-view>
+        </view>
+      </block>
+
+      <block wx:if="{{currentTab === 'tab-spec'}}">
+        <view wx:for="{{productSpec}}" wx:for-item="spec" class="spec-row">
+          <text class="record-label">{{spec.key}}</text>{{spec.value}}
+        </view>
+      </block>
+    </view>
   </view>
 </view>
