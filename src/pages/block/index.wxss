@@ -1,0 +1,15 @@
+.header {
+  padding-top: 128rpx !important;
+}
+
+.main {
+  flex: 1;
+  background-color: #669;
+}
+
+.center {
+  width: 60%;
+  padding: 40rpx;
+  text-align: center;
+  box-sizing: border-box;
+}

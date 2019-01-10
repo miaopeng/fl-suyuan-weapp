@@ -1,6 +1,6 @@
 import { addRecord } from '../../service/api';
 import { codeParser } from '../../utils/util';
-import scanerMixin from '../../mixins/scaner';
+import scanerMixin from '../mixins/scaner';
 
 const app = getApp()
 

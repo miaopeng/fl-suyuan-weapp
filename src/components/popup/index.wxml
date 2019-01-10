@@ -1,0 +1,18 @@
+<wxs src="../../wxs/bem.wxs" module="bem" />
+
+<overlay
+  wx:if="{{ inited && overlay }}"
+  mask
+  show="{{ show }}"
+  z-index="{{ zIndex }}"
+  custom-style="{{ overlayStyle }}"
+  bind:click="onClickOverlay"
+/>
+<view
+  wx:if="{{ inited }}"
+  class="custom-class {{ bem('popup', [position, { safe: isIPhoneX && safeAreaInsetBottom && position === 'bottom' }]) }}"
+  style="z-index: {{ zIndex }}; -webkit-animation: {{ transition || position }}-{{ type }} {{ duration }}ms both; animation: {{ transition || position }}-{{ type }} {{ duration }}ms both; {{ display ? '' : 'display: none;' }}{{ customStyle }}"
+  bind:animationend="onAnimationEnd"
+>
+  <slot />
+</view>

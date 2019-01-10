@@ -93,6 +93,18 @@
   float: right;
 }
 
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
 .full {
   min-height: 100vh;
 }
@@ -227,6 +239,10 @@ ad {
   font-size: 48rpx;
 }
 
+.text-normal {
+  font-size: 1rem;
+}
+
 .text-sm {
   font-size: 30rpx;
 }
@@ -254,6 +270,13 @@ ad {
 .border {
   display: inline-block;
   border: 2rpx solid white;
+  padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+.border-brand {
+  display: inline-block;
+  border: 2rpx solid #669;
   padding: 4rpx 16rpx;
   border-radius: 8rpx;
 }

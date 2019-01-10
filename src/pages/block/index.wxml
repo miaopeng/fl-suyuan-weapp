@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container full">
+  <view class="header flex center">
+    <text class="brand">block</text>
+  </view>
+  <view>
+    <popup show="{{ show }}" custom-class="center" bind:close="onClose">内容</popup>
+  </view>
+</view>

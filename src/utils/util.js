@@ -14,6 +14,15 @@ const formatTime = date => {
   return `${[year, month, day].map(formatNumber).join('/')  } ${  [hour, minute, second].map(formatNumber).join(':')}`
 }
 
+const formatDate = val => {
+  if (!val || Date.parse(val) === 'NaN') {
+    return '';
+  }
+
+  const d = new Date(`${val}Z`);
+  return formatTime(d);
+}
+
 const codeParser = (value) => {
   const re = /^https?:\/\/flian.iask.in\/tracing\/code\/(\d+)/;
   const match = re.exec(value);
@@ -25,6 +34,7 @@ const codeParser = (value) => {
 
 
 module.exports = {
+  formatDate,
   formatTime,
   codeParser,
 }

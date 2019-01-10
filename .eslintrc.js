@@ -8,6 +8,7 @@ module.exports = {
   globals: {
     wx: false,
     App: false,
+    Behavior: false,
     Component: false,
     getApp: false,
     Page: false,

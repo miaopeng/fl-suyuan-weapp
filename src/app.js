@@ -2,6 +2,7 @@ const SERVERS = {
   PROD: "https://zt.fulldao.cn",
   DEV:  "http://flian.iask.in",
   MOCK: "http://localhost:3000",
+  TING: "http://192.168.12.119:10002",
 };
 const APP_SESSION_KEY = 'app_session_key';
 

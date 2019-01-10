@@ -1,4 +1,4 @@
-import scanerMixin from '../../mixins/scaner';
+import scanerMixin from '../mixins/scaner';
 
 Page({
   ...scanerMixin,

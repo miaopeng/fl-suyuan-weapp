@@ -1,5 +1,5 @@
-import { queryRecords } from '../service/api';
-import { codeParser } from '../utils/util';
+import { queryRecords } from '../../service/api';
+import { codeParser } from '../../utils/util';
 
 const app = getApp();
 
@@ -28,7 +28,7 @@ const scaner = {
       if (res && res.data.code === 1) {
         const { product, records } = res.data.data;
         app.saveProduct({
-          ...product[0],
+          ...product,
           code,
           records,
         });

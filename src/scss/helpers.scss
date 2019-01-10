@@ -85,6 +85,16 @@
   float: right;
 }
 
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+
 .full {
   min-height: 100vh;
 }

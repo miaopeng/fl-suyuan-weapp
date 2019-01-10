@@ -17,7 +17,10 @@
   .gallery {
     margin: 0 -20px;
 
-    image { display: block; width: 100%; }
+    image {
+      display: block;
+      width: 100%;
+    }
   }
 }
 
@@ -30,4 +33,32 @@
   color: $color-brand;
   padding: 12px 0;
   border-bottom: 1px solid #ddd;
+}
+
+.modal-block {
+  width: 80%;
+  .hd {
+    padding: 20px;
+    background-color: $color-brand;
+  }
+  .bd {
+    padding: 20px;
+    .block-map {
+      margin-top: 20px;
+      margin-left: -20px;
+      margin-right: -20px;
+      margin-bottom: -20px;
+    }
+  }
+}
+
+.block-value {
+  white-space: normal;
+  word-break: break-all;
+  padding: 8px;
+  background-color: #444;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 12px;
 }

@@ -44,7 +44,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -75,6 +75,12 @@
 					"name": "index",
 					"pathName": "pages/index/index",
 					"query": "q=http%3A%2F%2Fflian.iask.in%2Ftracing%2Fcode%2F19019128"
+				},
+				{
+					"id": 5,
+					"name": "block",
+					"pathName": "pages/block/index",
+					"query": "tid=becdbb8178de7d26a8396d753d32dc80d613b280e01bf009e71daf863ce57f0a"
 				}
 			]
 		}
