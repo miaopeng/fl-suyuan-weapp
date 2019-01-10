@@ -1,6 +1,6 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="header" wx:if="{{!loading}}">
+<view class="container" wx:if="{{!loading}}">
+  <view class="header">
     <view>{{productName}}</view>
     <view>{{enterpiseName}}</view>
     <view class="code">产品代码：{{code}}</view>
@@ -16,5 +16,6 @@
             </view>
         </i-step>
     </i-steps>
+    <view class="color-brand px">溯源记录提交成功, 谢谢</view>
   </view>
 </view>

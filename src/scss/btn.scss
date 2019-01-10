@@ -11,6 +11,7 @@
   }
 
   &.noborder {
+    line-height: 32rpx;
     width: auto;
     border: 0;
   }
@@ -21,9 +22,8 @@
     height: 30vw;
     text-align: center;
     line-height: 30vw;
-    background-color: aliceblue;
+    background-color: white;
     border: 0;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, .4);
     color: $color-brand;
     font-weight: bold;
   }

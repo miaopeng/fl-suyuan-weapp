@@ -1,12 +1,22 @@
+.header {
+  padding-top: 128rpx !important;
+}
+
 .main {
   flex: 1;
+  background-color: #669;
 }
 
-.footer {
-  color: red;
-  font-size: 40rpx;
+.brand {
+  font-family: 'tsangerxuansan01w01';
+  writing-mode: vertical-rl;
+  font-size: 72rpx;
+  letter-spacing: 20rpx;
+  margin-left: -72rpx;
 }
 
-.footer .right {
-  color: red;
+.scan {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }

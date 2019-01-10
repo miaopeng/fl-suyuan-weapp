@@ -1,13 +1,26 @@
+@import '../../scss/variables';
+
+.header {
+  padding-top: 64px !important;
+}
+
 .main {
   flex: 1;
+  background-color: $color-brand;
 }
 
-.footer {
-  color: red;
-  font-size: 20px;
-  .right {
-    color: red;
+.brand {
+  font-family: 'tsangerxuansan01w01';
+  writing-mode: vertical-rl;
+  font-size: 36px;
+  letter-spacing: 10px;
+  margin-left: -36px;
+}
+
+.scan {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .btn {
   }
 }
-
-

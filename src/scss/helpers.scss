@@ -89,15 +89,26 @@
   min-height: 100vh;
 }
 
-.ph { padding-left: 16px !important; padding-right: 16px !important; }
-.pv { padding-top: 16px !important; padding-bottom: 16px !important; }
+.block {
+  min-width: 100vw;
+}
+
+.bg-white {
+  background-color: white !important;
+}
+.bg-brand {
+  background-color: $color-brand !important;
+}
+
+.px { padding-left: 16px !important; padding-right: 16px !important; }
+.py { padding-top: 16px !important; padding-bottom: 16px !important; }
 .pt { padding-top: 16px !important; }
 .pb { padding-bottom: 16px !important; }
 .pl { padding-left: 16px !important; }
 .pr { padding-right: 16px !important; }
 
-.mh { margin-left: 16px !important; margin-right: 16px !important; }
-.mv { margin-top: 16px !important; margin-bottom: 16px !important; }
+.mx { margin-left: 16px !important; margin-right: 16px !important; }
+.my { margin-top: 16px !important; margin-bottom: 16px !important; }
 .mt { margin-top: 16px !important; }
 .mb { margin-bottom: 16px !important; }
 .ml { margin-left: 16px !important; }

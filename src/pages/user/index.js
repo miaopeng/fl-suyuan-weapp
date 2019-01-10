@@ -1,9 +1,12 @@
 import { addRecord } from '../../service/api';
 import { codeParser } from '../../utils/util';
+import scanerMixin from '../../mixins/scaner';
 
 const app = getApp()
 
 Page({
+  ...scanerMixin,
+
   data: {
     user: {}
   },
@@ -24,9 +27,23 @@ Page({
     }
   },
 
-  scan() {
+  scanTracing() {
     wx.scanCode({
-      success({ result }) {
+      success: ({ result }) => {
+        if (result && codeParser(result)) {
+          wx.showLoading({ title: '检查二维码...' });
+          this.parseCode(result);
+        } else {
+          app.toast('请使用正确的二维码');
+        }
+      }
+    })
+
+  },
+
+  scanAddRecord() {
+    wx.scanCode({
+      success: ({ result }) => {
         if (result && codeParser(result)) {
           wx.showLoading({ title: '检查二维码...' });
           addRecord({ qrCodeId: codeParser(result)})

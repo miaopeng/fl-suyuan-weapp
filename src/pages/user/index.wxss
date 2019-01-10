@@ -16,3 +16,8 @@
   display: block;
   margin: 0 auto;
 }
+
+.btn.btn-add-record {
+  background-color: #79bf80;
+  margin-bottom: 128rpx;
+}

@@ -1,6 +1,5 @@
 <view class="container page-login full flex flex-column space-between top">
-  <view class="main">
-    <view class="header">
+  <view class="main px">
       <view class="title">登录孚链溯源平台</view>
       <view wx:if="{{withSms}}">
         <form bindsubmit="loginWithSms">
@@ -33,18 +32,16 @@
           </view>
         </form>
       </view>
-    </view>
-    <view class="footer">
-      <view wx:if="{{withSms}}">
-        <view class="text-brand" bindtap="switchMode">
+
+      <block wx:if="{{withSms}}">
+        <view class="color-brand text-sm mt" bindtap="switchMode">
           使用密码登录
         </view>
-      </view>
-      <view wx:else>
-        <view class="text-brand" bindtap="switchMode" data-withsms>
+      </block>
+      <block wx:else>
+        <view class="color-brand text-sm mt" bindtap="switchMode" data-withsms>
           使用手机验证码登录
         </view>
-      </view>
-    </view>
+      </block>
   </view>
 </view>
