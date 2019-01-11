@@ -22,7 +22,6 @@ Page({
   },
 
   onLoad() {
-
     const { product } = app;
     if (product.productId) {
       this.setData({ product });

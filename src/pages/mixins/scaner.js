@@ -26,10 +26,11 @@ const scaner = {
     queryRecords(code).then(res => {
       wx.hideLoading();
       if (res && res.data.code === 1) {
-        const { product, records } = res.data.data;
+        const { product, records, hashQrCode } = res.data.data;
         app.saveProduct({
           ...product,
           code,
+          hashQrCode, // 后台通过 qrcode 生成
           records,
         });
         wx.navigateTo({ url: '/pages/tracing/index' })

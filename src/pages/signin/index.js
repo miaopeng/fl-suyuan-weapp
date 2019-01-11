@@ -6,7 +6,7 @@ const app = getApp();
 Page({
   data: {
     withSms: true,
-    mobile: '18601280503',
+    mobile: '',
     captchaUrl: `${app.API_URL}/user-service/account/loginSmsCode`
   },
 

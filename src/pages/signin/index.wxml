@@ -4,7 +4,7 @@
       <view wx:if="{{withSms}}">
         <form bindsubmit="loginWithSms">
           <view class="input-wrapper">
-            <input name="mobile" type="number" value="18601280503" class="input-box phone-code"
+            <input name="mobile" type="number" value="" class="input-box phone-code"
             bindinput="bindMobile" placeholder="请输入已注册的手机号" focus="true" />
           </view>
           <view class="captcha-wrapper">
@@ -20,11 +20,11 @@
       <view wx:else>
         <form bindsubmit="loginWithPass">
           <view class="input-wrapper">
-            <input name="mobile" type="number" value="18601280503" class="input-box phone-code"
+            <input name="mobile" type="number" value="" class="input-box phone-code"
             bindinput="bindMobile" placeholder="请输入已注册的手机号" focus="true" />
           </view>
           <view class="input-wrapper">
-            <input name="password" type="password" value="123"
+            <input name="password" type="password" value=""
               class="input-box input-password" placeholder="请输入密码" />
           </view>
           <view class="user-input-row">
