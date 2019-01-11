@@ -1,15 +1,15 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="header">
+  <view id="header" class="header">
     <view class="text-xs">您购买的是</view>
-    <view class="mb">{{product.productName}}</view>
+    <view class="mb text-lg">{{product.productName}}</view>
     <view class="text-sm mb">生产商 {{product.enterpiseName}}</view>
     <view class="text-xs border mr">一物一码</view>
     <view class="text-xs border">区块链码：{{blockId}}</view>
   </view>
   <view class="main">
 
-    <tabs current="{{ currentTab }}" bindchange="handleChangeTab">
+    <tabs id="tabs" current="{{ currentTab }}" bindchange="handleChangeTab">
       <tab key="tab-tracing" title="溯源信息"></tab>
       <tab key="tab-intro" title="产品介绍"></tab>
       <tab key="tab-spec" title="规格参数"></tab>
@@ -38,7 +38,9 @@
                 <view><text class="record-label">{{record.sectorTime}}</text>{{record.recTime}}</view>
                 <view class="flex items-center mt">
                   <view class="border-brand mr">已上链</view>
-                  <view class="border-brand" bindtap="showBlockModal" data-tid="{{record.transactionId}}">查看区块链信息</view>
+                  <view class="border-brand" bindtap="showBlockModal" data-tid="{{record.transactionId}}">
+                    查看区块链信息
+                  </view>
                 </view>
               </view>
             </i-step>
@@ -48,7 +50,7 @@
 
       <block wx:if="{{currentTab === 'tab-intro'}}">
         <view class="gallery">
-          <scroll-view scroll-y style="height: 500px">
+          <scroll-view scroll-y style="height: {{introHeight}}px">
             <image mode="widthFix" src="../../static/pic/intro-01.jpg" />
             <image mode="widthFix" src="../../static/pic/intro-02.jpg" />
           </scroll-view>
@@ -62,7 +64,12 @@
       </block>
     </view>
   </view>
-  <popup show="{{ blockModalVisible }}" custom-class="modal-block" bind:close="hideBlockModal">
+  <popup
+    show="{{ blockModalVisible }}"
+    custom-class="modal-block"
+    bind:close="hideBlockModal"
+    customStyle="overflow-y: visible"
+  >
     <block wx:if="{{tracingLoading}}">
       <view class="loading bg-brand" style="padding: 80rpx">
         <view class="icon-loading" />
@@ -76,8 +83,12 @@
     <block wx:else>
       <view class="relative">
         <view class="hd text-sm text-white">
-          <icon bindtap="hideBlockModal" type="close" style="position: absolute; right: 30rpx; top: 30rpx"/>
-          <!-- <view class="text-normal mb">区块详情</view> -->
+          <icon
+            size="20"
+            bindtap="hideBlockModal"
+            type="close"
+            style="position: absolute; right: 0; top: -50rpx"
+          />
           <view class="flex">
             <view class="mr">
               <view><text class="record-label">区块ID</text></view>
@@ -97,10 +108,11 @@
           <view><text class="record-label">操作人</text>{{tracing.record.recExecutor}}</view>
           <view><text class="record-label">操作时间</text>{{tracing.record.recTime}}</view>
           <view><text class="record-label">操作地点</text>{{tracing.record.recAddr}}</view>
-          <view class="block-map">
+          <view class="block-map" wx:if="{{blockModalVisible}}">
             <map
               id="myMap"
               style="width: 100%; height: 160px;"
+              controls="{{[]}}"
               latitude="{{tracing.record.recAddrlatitude}}"
               longitude="{{tracing.record.recAddrlongitude}}"
               markers="{{markers}}"

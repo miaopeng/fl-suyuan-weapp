@@ -1,4 +1,5 @@
 import { queryBlock } from '../../service/api';
+import { getRect } from '../../utils/util';
 
 const app = getApp();
 
@@ -15,17 +16,39 @@ Page({
     markers: [],
     tracingLoading: false,
     tracingError: '',
+    introHeight: 0,
     currentTab: 'tab-tracing',
     blockModalVisible: false,
   },
 
   onLoad() {
+
     const { product } = app;
     if (product.productId) {
       this.setData({ product });
+      this.initIntro();
+      if (!product.records || product.records.length === 0) {
+        this.setData({ error: '尚无溯源记录'});
+      }
     } else {
       this.setData({ error: '没有找到产品信息' });
     }
+  },
+
+  initIntro() {
+    const sysinfo = wx.getSystemInfoSync();
+    const queries = [
+      getRect('#header'),
+      getRect('#tabs')
+    ];
+    Promise.all(queries).then(([headerRect, tabsRect]) => {
+      const introHeight = sysinfo.windowHeight - headerRect.height - tabsRect.height;
+      if (introHeight > 0) {
+        this.setData({
+          introHeight,
+        });
+      }
+    })
   },
 
   showBlockModal(e) {
@@ -54,7 +77,6 @@ Page({
       markers: [],
     });
     queryBlock(tid).then(res => {
-      console.log('res', res);
       this.setData({
         tracingLoading: false
       });
