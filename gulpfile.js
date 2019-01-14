@@ -4,7 +4,7 @@ const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 
-const buildPath = path.join(__dirname, '.');
+const buildPath = path.join(__dirname, 'src');
 
 function buildWxss() {
   const pxRegExp = /(\d*\.?\d+)px/ig
@@ -14,15 +14,15 @@ function buildWxss() {
   }
 
 	return src([
-    './**/*.scss',
-    '!./scss/**',
-    '!./node_modules/**',
-    '!./miniprogram_npm/**',
+    './src/**/*.scss',
+    '!./src/scss/**/*.scss',
+    '!./src/node_modules/**',
+    '!./src/miniprogram_npm/**',
   ])
 		.pipe(sass({
 			errLogToConsole: true,
 			outputStyle: 'expanded',
-			includePaths: './scss'
+			includePaths: './src/scss'
     }).on('error', sass.logError))
     .pipe(replace(pxRegExp, pxReplace))
 		.pipe(rename({ 'extname': '.wxss' }))
@@ -31,7 +31,7 @@ function buildWxss() {
 
 const build = series(buildWxss);
 const watcher = function watcher () {
-  watch('./**/*.scss', buildWxss);
+  watch('./src/**/*.scss', buildWxss);
 }
 
 exports.build = build;

@@ -1,4 +1,4 @@
-const { request: wxRequest } = require('wx-promise-request');
+const { request: wxRequest } = require('../utils/wx');
 const Url = require('url-parse');
 
 const app = getApp();
@@ -71,7 +71,7 @@ export default function request(
   }
 
   const newOptions = {
-    url: newURL,
+    // url: newURL,
     ...option,
   };
 
@@ -88,7 +88,7 @@ export default function request(
     newOptions.body = JSON.stringify(newOptions.body);
   }
 
-  return wxRequest(newOptions)
+  return wxRequest(newURL, newOptions)
     .then(checkStatus)
     .then(response => {
       if (newOptions.wrapResponse) {
