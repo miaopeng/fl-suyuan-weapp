@@ -52,8 +52,9 @@
       <block wx:if="{{currentTab === 'tab-intro'}}">
         <view class="gallery">
           <scroll-view scroll-y style="height: {{introHeight}}px">
-            <image mode="widthFix" src="../../static/pic/intro-01.jpg" />
-            <image mode="widthFix" src="../../static/pic/intro-02.jpg" />
+            <block wx:for="{{product.pics}}" wx:for-item="pic" wx:key="*this">
+              <image mode="widthFix" src="{{pic}}" />
+            </block>
           </scroll-view>
         </view>
       </block>
@@ -101,7 +102,7 @@
             </view>
           </view>
           <view><text class="record-label">区块HASH</text></view>
-          <view class="block-value">{{tracing.record.transactionId}}</view>
+          <view class="block-value">{{tracing.block.trxId}}</view>
         </view>
         <view class="bd text-xs">
           <view><text class="record-label">上链产品</text>{{tracing.record.productName}}</view>

@@ -8,6 +8,7 @@ const APP_SESSION_KEY = 'app_session_key';
 
 App({
   API_URL: SERVERS.PROD,
+  STATIC_HOST: SERVERS.PROD,
 
   user: {
   },
@@ -53,9 +54,11 @@ App({
   },
 
   saveProduct(product) {
+    const pics = product.productSrc.map(pic => this.STATIC_HOST + pic);
     this.product = {
       ...this.product,
       ...product,
+      pics,
     }
   },
 
