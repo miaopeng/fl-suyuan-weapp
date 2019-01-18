@@ -23,10 +23,7 @@ App({
 
   setUserSession(data) {
     if (!data) return;
-    wx.setStorage({
-      key: APP_SESSION_KEY,
-      data
-    });
+    wx.setStorageSync(APP_SESSION_KEY, data);
     this.user.app_session_key = data;
   },
 

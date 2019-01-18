@@ -1,5 +1,5 @@
-const { request: wxRequest } = require('../utils/wx');
 const Url = require('url-parse');
+const { request: wxRequest } = require('../utils/wx');
 
 const app = getApp();
 
@@ -24,11 +24,11 @@ const codeMessage = {
 const failMessage = '请求失败，请稍后再试';
 
 const checkStatus = response => {
-  const { statusCode } = response;
+  const { statusCode, data } = response;
   if (statusCode >= 200 && statusCode < 300) {
     return response;
   }
-  const errortext = codeMessage[statusCode] || response.errMsg;
+  const errortext = data.message || codeMessage[statusCode];
   const error = new Error(errortext);
   error.name = statusCode;
   error.response = response;
@@ -59,14 +59,12 @@ export default function request(
 ) {
   let newURL = url;
 
-  console.log('request', url, app.getToken());
   if (url.startsWith(`/api/`)) {
     const parsedURL = new Url(url.replace(/^\/api/, ''), true);
     if (app.getToken()) {
       parsedURL.set('query', { 'access_token': app.getToken()});
     }
     parsedURL.set('hostname', `${app.API_URL}/user-service`);
-    console.log('parsedURL.href', parsedURL.href);
     newURL = parsedURL.href;
   }
 
@@ -110,13 +108,13 @@ export default function request(
       const { name: status, message } = e;
       console.log('request catched', status, message);
 
-      if (status === 400) {
-        app.toast(failMessage);
+      if (status === 400 && message === 'Bad credentials') {
+        app.toast('登录认证失败');
         return;
       }
 
-      if (status === 401) {
-        app.toast(failMessage);
+      if (status === 401 && message === 'Unauthorized') {
+        app.toast('登录认证失败');
         return;
       }
 

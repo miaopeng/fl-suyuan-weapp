@@ -22,7 +22,6 @@ Component({
 
   methods: {
     handleClick() {
-      console.log('handleClick');
       const { mobile, url, disabled } = this.data;
       if (disabled || !url) {
         return;
