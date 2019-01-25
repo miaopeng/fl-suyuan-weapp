@@ -1,0 +1,30 @@
+@import './variables';
+
+.btn {
+  width: 100%;
+  color: #333;
+  border-radius: 0;
+  font-size: 32rpx;
+
+  &.white {
+    color: white;
+  }
+
+  &.noborder {
+    line-height: 32rpx;
+    width: auto;
+    border: 0;
+  }
+
+  &.moon {
+    border-radius: 50%;
+    width: 30vw;
+    height: 30vw;
+    text-align: center;
+    line-height: 30vw;
+    background-color: white;
+    border: 0;
+    color: $color-brand;
+    font-weight: bold;
+  }
+}

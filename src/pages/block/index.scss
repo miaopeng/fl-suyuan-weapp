@@ -1,0 +1,17 @@
+@import '../../scss/variables';
+
+.header {
+  padding-top: 64px !important;
+}
+
+.main {
+  flex: 1;
+  background-color: $color-brand;
+}
+
+.center {
+  width: 60%;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}

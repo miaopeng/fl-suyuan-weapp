@@ -1,0 +1,20 @@
+.captcha-btn {
+  min-width: 200rpx;
+  text-align: center;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 26rpx;
+  background-color: #77a;
+  flex: 1;
+  padding: 0 32rpx;
+  border: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+}
+
+.captcha-btn.is-disabled {
+  background-color: #ddd;
+  color: #669;
+}

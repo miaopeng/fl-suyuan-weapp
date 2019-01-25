@@ -1,0 +1,16 @@
+{
+  "name": "suyuan-weapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "ssh://git@flian.iask.in:10099/suyuan/suyuan-weapp.git",
+  "author": "Peng Miao <mios@yeah.net>",
+  "license": "MIT",
+  "scripts": {},
+  "devDependencies": {},
+  "dependencies": {
+    "es6-promise": "^4.2.5",
+    "regenerator-runtime": "^0.13.1",
+    "url-parse": "^1.4.4",
+    "url-search-params": "^1.1.0"
+  }
+}

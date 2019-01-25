@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container full">
+  <view class="header flex center">
+    <text class="brand">孚链追溯</text>
+  </view>
+  <view class="main flex items-center">
+    <view class="scan">
+      <button class="btn moon" plain="true" bindtap="handleScan">扫码溯源</button>
+    </view>
+  </view>
+  <navigator
+    class="flex block text-sm color-brand items-center end px py"
+    url="/pages/signin/index"
+  >
+    <text>员工登录</text> <icon type="enter"/>
+  </navigator>
+</view>

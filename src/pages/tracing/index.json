@@ -1,0 +1,13 @@
+{
+  "navigationBarBackgroundColor": "#669",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "tabs": "../../components/tabs/index",
+    "tab": "../../components/tab/index",
+    "i-steps": "../../components/steps/index",
+    "i-step": "../../components/step/index",
+    "icon": "../../components/icon/index",
+    "popup": "../../components/popup/index"
+
+  }
+}

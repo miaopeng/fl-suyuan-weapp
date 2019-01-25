@@ -1,0 +1,47 @@
+<view class="container page-login full flex flex-column space-between top">
+  <view class="main px">
+      <view class="title">登录孚链溯源平台</view>
+      <view wx:if="{{withSms}}">
+        <form bindsubmit="loginWithSms">
+          <view class="input-wrapper">
+            <input name="mobile" type="number" value="{{mobile}}" class="input-box phone-code"
+            bindinput="bindMobile" placeholder="请输入已注册的手机号" focus="true" />
+          </view>
+          <view class="captcha-wrapper">
+            <input name="sms_code" type="number"
+              class="input-box captcha-input" placeholder="请输入验证码" />
+            <view>
+              <captcha-btn mobile="{{mobile}}" url="{{captchaUrl}}"/>
+            </view>
+          </view>
+          <button class="btn session" formType="submit">登录</button>
+        </form>
+      </view>
+      <view wx:else>
+        <form bindsubmit="loginWithPass">
+          <view class="input-wrapper">
+            <input name="mobile" type="number" value="{{mobile}}" class="input-box phone-code"
+            bindinput="bindMobile" placeholder="请输入已注册的手机号" focus="true" />
+          </view>
+          <view class="input-wrapper">
+            <input name="password" type="password" value=""
+              class="input-box input-password" placeholder="请输入密码" />
+          </view>
+          <view class="user-input-row">
+            <button class="btn session" formType="submit">登录</button>
+          </view>
+        </form>
+      </view>
+
+      <block wx:if="{{withSms}}">
+        <view class="color-brand text-sm mt" bindtap="switchMode">
+          使用密码登录
+        </view>
+      </block>
+      <block wx:else>
+        <view class="color-brand text-sm mt" bindtap="switchMode" data-withsms>
+          使用手机验证码登录
+        </view>
+      </block>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+function pad(val) {
+  return parseInt(val, 10) < 10 ? '0' + val : val;
+}
+
+function formatDate(time) {
+  var date = time || Date.now();
+  var d = getDate(date);
+  var Y = d.getFullYear();
+  var M = d.getMonth() + 1;
+  var D = d.getDate();
+  var h = d.getHours();
+  var m = d.getMinutes();
+  var s = d.getSeconds();
+  return Y + '-' + pad(M) + '-' + pad(D) + ' ' + pad(h) + ':' + pad(m) + ':' + pad(s);
+}
+
+function formatDateISO8601(time) {
+  var parsed = Date.parse(time + 'Z');
+  if (!isNaN(parsed)) {
+    return formatDate(parsed);
+  }
+  return time;
+}
+
+module.exports = {
+  formatDate: formatDate,
+  formatDateISO8601: formatDateISO8601,
+};

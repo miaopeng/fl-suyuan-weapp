@@ -1,0 +1,18 @@
+{
+  "cloud": true,
+  "pages":[
+    "pages/index/index",
+    "pages/tracing/index",
+    "pages/signin/index",
+    "pages/process/index",
+    "pages/user/index",
+    "pages/block/index"
+  ],
+  "window":{
+    "backgroundColor": "#669",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#669",
+    "navigationBarTitleText": "孚链追溯平台",
+    "navigationBarTextStyle":"white"
+  }
+}

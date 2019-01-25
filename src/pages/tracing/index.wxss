@@ -1,0 +1,65 @@
+.header {
+  width: 100%;
+  background-color: #669;
+  padding: 40rpx;
+  color: white;
+}
+
+.main {
+  width: 100%;
+}
+
+.tab-content {
+  padding: 0 40rpx;
+}
+
+.tab-content .gallery {
+  margin: 0 -40rpx;
+}
+
+.tab-content .gallery image {
+  display: block;
+  width: 100%;
+}
+
+.record-label {
+  display: inline-block;
+  width: 160rpx;
+}
+
+.spec-row {
+  color: #669;
+  padding: 24rpx 0;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.modal-block {
+  width: 80%;
+}
+
+.modal-block .hd {
+  padding: 40rpx;
+  background-color: #669;
+}
+
+.modal-block .bd {
+  padding: 40rpx;
+}
+
+.modal-block .bd .block-map {
+  margin-top: 40rpx;
+  margin-left: -40rpx;
+  margin-right: -40rpx;
+  margin-bottom: -40rpx;
+}
+
+.block-value {
+  white-space: normal;
+  word-break: break-all;
+  padding: 16rpx;
+  background-color: #444;
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+  border-radius: 12rpx;
+  font-size: 24rpx;
+}

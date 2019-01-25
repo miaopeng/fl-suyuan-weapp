@@ -1,0 +1,88 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": [
+			{
+				"type": "suffix",
+				"value": ".scss"
+			},
+			{
+				"type": "file",
+				"value": "yarn.lock"
+			}
+		]
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.5",
+	"appid": "wx28efcda537afb1c0",
+	"projectname": "suyuan-weapp",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "signin",
+					"pathName": "pages/signin/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "process",
+					"pathName": "pages/process/index",
+					"query": "code= 77362674"
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/index",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "tracing",
+					"pathName": "pages/tracing/index",
+					"query": "code=78878877"
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "q=http%3A%2F%2Fflian.iask.in%2Ftracing%2Fcode%2F19019128"
+				},
+				{
+					"id": 5,
+					"name": "block",
+					"pathName": "pages/block/index",
+					"query": "tid=becdbb8178de7d26a8396d753d32dc80d613b280e01bf009e71daf863ce57f0a"
+				}
+			]
+		}
+	}
+}

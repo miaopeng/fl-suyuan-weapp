@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container full">
+  <view class="main py">
+    <view wx:if="{{user}}">
+      <view class="header flex items-center mb">
+        <open-data class="avatar mr" type="userAvatarUrl"></open-data>
+        <view class="text-white flex cell">
+          你好，{{user.userName}}
+        </view>
+      </view>
+      <view class="mt">
+        <button class="btn moon btn-add-record" plain="true" bindtap="scanAddRecord">扫码记录</button>
+        <button class="btn moon" plain="true" bindtap="scanTracing">扫码溯源</button>
+      </view>
+    </view>
+  </view>
+  <view class="bg-white block py">
+    <button class="btn color-brand noborder flex items-center end" plain="true" bindtap="signout">
+      退出登录 <icon type="enter"/>
+    </button>
+  </view>
+</view>

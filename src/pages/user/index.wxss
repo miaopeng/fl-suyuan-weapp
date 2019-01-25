@@ -1,0 +1,23 @@
+.container {
+  background-color: #669;
+}
+
+.main {
+  width: 100%;
+}
+
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  border: 8rpx solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 25rpx;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn.btn-add-record {
+  background-color: #79bf80;
+  margin-bottom: 128rpx;
+}

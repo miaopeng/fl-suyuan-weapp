@@ -1,0 +1,128 @@
+<wxs src="../../wxs/helpers.wxs" module="helpers" />
+
+<view class="container">
+  <view id="header" class="header">
+    <view class="text-xs">您购买的是</view>
+    <view class="mb text-lg">{{product.productName}}</view>
+    <view class="text-sm mb">生产商 {{product.enterpiseName}}</view>
+    <view class="text-xs border mr">一物一码</view>
+    <view class="text-xs border uppercase">区块链码：{{product.hashQrCode}}</view>
+  </view>
+  <view class="main">
+
+    <tabs id="tabs" current="{{ currentTab }}" bindchange="handleChangeTab">
+      <tab key="tab-tracing" title="溯源信息"></tab>
+      <tab key="tab-intro" title="产品介绍"></tab>
+      <tab key="tab-spec" title="规格参数"></tab>
+    </tabs>
+
+    <view class="tab-content">
+      <block wx:if="{{currentTab === 'tab-tracing'}}">
+        <view class="mt">
+          <block wx:if="{{loading}}">
+            <view class="loading">
+              <view class="icon-loading" />
+            </view>
+          </block>
+          <block wx:if="{{error}}">
+            <view>
+              <text class="text-sm color-brand">{{error}}</text>
+            </view>
+          </block>
+
+          <i-steps wx:if="product.records.length" current="{{product.records.length}}" direction="vertical">
+            <i-step status="finish" wx:for="{{product.records}}" wx:key="{{idx}}" wx:for-item="record">
+              <view slot="title">{{record.recSectorName}}</view>
+              <view slot="content">
+                <view><text class="record-label">{{record.sectorAddr}}</text>{{record.recAddr}}</view>
+                <view><text class="record-label">{{record.sectorExecutor}}</text>{{record.recExecutor}}</view>
+                <view><text class="record-label">{{record.sectorTime}}</text>{{record.recTime}}</view>
+                <view class="flex items-center mt" wx:if="{{record.transactionId}}">
+                  <view class="border-brand mr">已上链</view>
+                  <view class="border-brand" bindtap="showBlockModal" data-tid="{{record.transactionId}}">
+                    查看区块链信息
+                  </view>
+                </view>
+              </view>
+            </i-step>
+          </i-steps>
+        </view>
+      </block>
+
+      <block wx:if="{{currentTab === 'tab-intro'}}">
+        <view class="gallery">
+          <scroll-view scroll-y style="height: {{introHeight}}px">
+            <block wx:for="{{product.pics}}" wx:for-item="pic" wx:key="*this">
+              <image mode="widthFix" src="{{pic}}" />
+            </block>
+          </scroll-view>
+        </view>
+      </block>
+
+      <block wx:if="{{currentTab === 'tab-spec'}}">
+        <view wx:for="{{product.productSpec}}" wx:key="{{key}}" wx:for-item="spec" class="spec-row">
+          <text class="record-label">{{spec.key}}</text>{{spec.value}}
+        </view>
+      </block>
+    </view>
+  </view>
+  <popup
+    show="{{ blockModalVisible }}"
+    custom-class="modal-block"
+    bind:close="hideBlockModal"
+    customStyle="overflow-y: visible"
+  >
+    <block wx:if="{{tracingLoading}}">
+      <view class="loading bg-brand" style="padding: 80rpx">
+        <view class="icon-loading" />
+      </view>
+    </block>
+    <block wx:elif="{{tracingError}}">
+      <view class="loading bg-brand" style="padding: 80rpx">
+        <text class="text-white text-sm">无法查到上链信息，请稍后再试</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="relative">
+        <view class="hd text-sm text-white">
+          <icon
+            size="20"
+            bindtap="hideBlockModal"
+            type="close"
+            style="position: absolute; right: 0; top: -50rpx"
+          />
+          <view class="flex">
+            <view class="mr">
+              <view><text class="record-label">区块ID</text></view>
+              <view class="block-value">{{tracing.block.blockNum}}</view>
+            </view>
+            <view>
+              <view><text class="record-label">生成时间</text></view>
+              <view class="block-value">{{ helpers.formatDateISO8601(tracing.block.blockTime) }}</view>
+            </view>
+          </view>
+          <view><text class="record-label">区块HASH</text></view>
+          <view class="block-value">{{tracing.block.trxId}}</view>
+        </view>
+        <view class="bd text-xs">
+          <view><text class="record-label">上链产品</text>{{tracing.record.productName}}</view>
+          <view><text class="record-label">上链操作</text>{{tracing.record.recSectorName}}</view>
+          <view><text class="record-label">操作人</text>{{tracing.record.recExecutor}}</view>
+          <view><text class="record-label">操作时间</text>{{tracing.record.recTime}}</view>
+          <view><text class="record-label">操作地点</text>{{tracing.record.recAddr}}</view>
+          <view class="block-map" wx:if="{{blockModalVisible}}">
+            <map
+              id="myMap"
+              style="width: 100%; height: 160px;"
+              controls="{{[]}}"
+              latitude="{{tracing.record.recAddrlatitude}}"
+              longitude="{{tracing.record.recAddrlongitude}}"
+              markers="{{markers}}"
+              show-location
+            ></map>
+          </view>
+        </view>
+      </view>
+    </block>
+  </popup>
+</view>

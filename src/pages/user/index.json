@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#669",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "icon": "../../components/icon/index"
+  }
+}

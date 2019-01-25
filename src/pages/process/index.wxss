@@ -1,0 +1,16 @@
+.header {
+  width: 100%;
+  background-color: #669;
+  padding: 40rpx;
+  color: white;
+}
+
+.main {
+  padding-top: 60rpx;
+  width: 100%;
+}
+
+.record-label {
+  display: inline-block;
+  width: 160rpx;
+}
