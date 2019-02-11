@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const SERVERS = {
   PROD: "https://zt.fulldao.cn",
   DEV:  "http://flian.iask.in",
@@ -78,7 +80,6 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        console.log('wx.getSetting', res.authSetting);
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({

@@ -4,7 +4,7 @@
   color: #fff;
   white-space: nowrap;
   font-size: 26rpx;
-  background-color: #77a;
+  background-color: #669;
   flex: 1;
   padding: 0 32rpx;
   border: 0;
@@ -15,6 +15,5 @@
 }
 
 .captcha-btn.is-disabled {
-  background-color: #ddd;
-  color: #669;
+  background-color: #ccc;
 }

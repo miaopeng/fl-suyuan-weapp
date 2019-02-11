@@ -1,12 +1,11 @@
-$asset-path: 'http://zt.fulldao.cn/web/weapp/img';
-$image-path: 'http://zt.fulldao.cn/web/weapp/img';
+$image-path: 'http\:\/\/zt.fulldao.cn/web/weapp/img';
 
 $color-brand: #669;
 $color-back: #F7F0ED;
 $blue: #3F9BE9;
 
 // Color
-$primary-color          : #669;
+$primary-color          : $color-brand;
 $info-color             : #2db7f5;
 $success-color          : #19be6b;
 $warning-color          : #ff9900;
@@ -23,6 +22,10 @@ $title-color            : #1c2438;
 $text-color             : #495060;
 
 $background-color-base  : #f7f7f7;  // base
+
+// Colors in Miniprogram
+$wx-window-bg-color            : $color-brand; 
+$wx-window-navbar-bg-color     : $color-brand; 
 
 // Border color
 $border-color-base      : #dddee1;  // outside

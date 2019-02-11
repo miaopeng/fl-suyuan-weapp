@@ -1,6 +1,4 @@
 {
-  "navigationBarBackgroundColor": "#669",
-  "navigationBarTextStyle": "white",
   "usingComponents": {
     "i-steps": "../../components/steps/index",
     "i-step": "../../components/step/index"
