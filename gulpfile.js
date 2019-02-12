@@ -1,16 +1,17 @@
+const fs = require('fs');
 const path = require('path');
 const { series, src, dest, watch } = require('gulp');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const scssToJson = require('scss-to-json');
-const jeditor = require('gulp-json-editor');
-const touch = require('gulp-touch-cmd');
+const merge = require('merge');
+const prettier = require('prettier');
  
 const buildPath = path.join(__dirname, 'src');
 
 const variablesFile = path.resolve(buildPath, 'scss/variables.scss');
-// const appJSONFile = path.resolve(buildPath, 'app.json');
+const appJSONFile = path.resolve(buildPath, 'app.json');
 
 function buildWxss() {
   const pxRegExp = /(\d*\.?\d+)px/ig
@@ -35,33 +36,20 @@ function buildWxss() {
 		.pipe(dest(buildPath));
 }
 
-function updateAppJSON() {
+const updateAppJSON = (done) => {
   const variables = scssToJson(variablesFile);
-  console.log('color-brand:', variables['$color-brand']);
-  return src('src/app.json')
-  .pipe(jeditor({
+  const colorBrand = variables['$color-brand'];
+  const jsonString = fs.readFileSync(appJSONFile, 'utf8');
+  const merged = merge.recursive(true, JSON.parse(jsonString), {
     window:{
-      backgroundColor: variables['$color-brand'],
-      navigationBarBackgroundColor: variables['$color-brand']
+      backgroundColor: colorBrand,
+      navigationBarBackgroundColor: colorBrand,
     }
-  }, {
-      "max_preserve_newlines": "1",
-      "preserve_newlines": true,
-      "keep_array_indentation": false,
-      "break_chained_methods": false,
-      "indent_scripts": "normal",
-      "brace_style": "collapse",
-      "space_before_conditional": false,
-      "unescape_strings": false,
-      "jslint_happy": false,
-      "end_with_newline": true,
-      "wrap_line_length": "0",
-      "indent_inner_html": false,
-      "comma_first": false,
-      "e4x": false
-  })) 
-  .pipe(dest(buildPath))
-  .pipe(touch());
+  })
+  const result = prettier.format(JSON.stringify(merged), { parser: 'json'});
+  // console.log(result);
+  fs.writeFileSync(appJSONFile, result);
+  done();
 }
 
 const build = series(buildWxss, updateAppJSON);
@@ -71,4 +59,5 @@ const watcher = function watcher () {
 
 exports.build = build;
 exports.watch = watcher;
+exports.updateAppJSON = updateAppJSON;
 exports.default = series(build, watcher);
