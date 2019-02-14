@@ -61,11 +61,11 @@ ad {
   }
 }
 
-@import 'scss/typo';
-@import 'scss/font-cn';
-@import 'scss/icons';
-@import 'scss/input';
-@import 'scss/loading';
-@import 'scss/cell';
-@import 'scss/btn';
+@import 'scss/typo';    // 排版/字体相关
+@import 'scss/font-cn'; // 首页中文字体
+@import 'scss/icons';   // 图标
+@import 'scss/input';   // 输入框
+@import 'scss/loading'; // loading效果
+@import 'scss/cell'; 
+@import 'scss/btn';     // 按钮样式
 
